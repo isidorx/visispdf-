@@ -7,7 +7,7 @@ import tempfile
 from pypdf import PdfWriter
 
 # 1. Configuración básica de la página
-st.set_page_config(page_title="App del Local 🎀", page_icon="🌸", layout="centered")
+st.set_page_config(page_title="VisisPDF+ :3 🎀", page_icon="🌸", layout="centered")
 
 # 2. Inyectamos la Magia Kawaii (CSS para colores y estilo)
 st.markdown("""
@@ -60,7 +60,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 3. Encabezado de la App
-st.title("🌸 Herramientas del Local 🎵")
+st.title("🌸 Bienvenida a Visis PDF+ :3 🎵")
 st.write("¡Hola jefa! 🦇 Elige qué necesitas unir hoy y deja que la magia haga el resto.")
 
 # 4. Creamos las pestañas
