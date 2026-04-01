@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import io
 
-st.set_page_config(page_title="App Gastronómica", page_icon="📝")
+st.set_page_config(page_title="VisisPDF+", page_icon="📝")
 
 st.title("📸 Cierre de Turno: Fotos a PDF")
 st.write("Sube las fotos de tus boletas Z, facturas o comprobantes. El sistema las unirá en un solo documento listo para tu reporte de finanzas.")
@@ -32,6 +32,6 @@ if archivos_subidos:
             st.download_button(
                 label="⬇️ Descargar Reporte en PDF",
                 data=pdf_bytes,
-                file_name="Reporte_Finanzas_Fotos.pdf",
+                file_name="Reporte_ODOO_Fotos.pdf",
                 mime="application/pdf"
             )
