@@ -1,1 +1,3 @@
 libreoffice
+fonts-liberation
+fonts-crosextra-carlito
