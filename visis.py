@@ -6,8 +6,18 @@ import subprocess
 import tempfile
 from pypdf import PdfWriter
 
+# --- ARREGLO DE FUENTES: MAGIA INTERNA ---
+@st.cache_resource
+def refrescar_fuentes():
+    # Obligamos al servidor a recargar el catálogo de fuentes para que LibreOffice 
+    # reconozca las fuentes métricas (Liberation/Carlito) instaladas en packages.txt
+    subprocess.run(['fc-cache', '-f', '-v'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+refrescar_fuentes()
+# -----------------------------------------
+
 # 1. Configuración básica de la página
-st.set_page_config(page_title="VisisPDF+ :3 🎀", page_icon="🌸", layout="centered")
+st.set_page_config(page_title="VitisPDF+ :3 🎀", page_icon="🌸", layout="centered")
 
 # 2. Inyectamos la Magia Kawaii (CSS para colores y estilo)
 st.markdown("""
@@ -60,7 +70,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 3. Encabezado de la App
-st.title("🌸 Bienvenida a Visis PDF+ :3 🎵")
+st.title("🌸 Bienvenida a VitisPDF+ :3 🎵")
 st.write("¡Hola jefa! 🦇 Elige qué necesitas unir hoy y deja que la magia haga el resto.")
 
 # 4. Creamos las pestañas
@@ -131,7 +141,7 @@ with tab_words:
                         with open(word_path, "wb") as f:
                             f.write(archivo.read())
                             
-                        # Convertimos a PDF usando LibreOffice
+                        # Convertimos a PDF usando LibreOffice (ahora usando las fuentes métricas)
                         subprocess.run(['libreoffice', '--headless', '--convert-to', 'pdf', word_path, '--outdir', temp_dir], 
                                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                         
